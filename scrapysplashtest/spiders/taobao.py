@@ -30,8 +30,6 @@ class TaobaoSpider(Spider):
                                     args={'lua_source': script, 'page': page, 'wait': 7})
     
     def parse(self, response):
-        with open('test.html', 'w', encoding='utf-8') as f:
-            f.write(response.text)
         products = response.xpath(
             '//div[@id="mainsrp-itemlist"]//div[@class="items"][1]//div[contains(@class, "item")]')
         for product in products:
